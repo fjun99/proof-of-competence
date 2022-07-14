@@ -19,7 +19,7 @@ Usage: Task example for polygon(chainId 137). You can omit amount if you just wa
 import { Task, Verifier } from "types"
 import { formatEther } from "@ethersproject/units"
 import { AlchemyProvider } from '@ethersproject/providers'
-import { APP_CONFIG } from 'utils/config'
+// import { APP_CONFIG } from 'utils/config'
 
 const ALCHEMY_API_KEY = process.env.NEXT_PUBLIC_ALCHEMY_API_KEY;
 

@@ -1,7 +1,6 @@
-import { expect, use } from 'chai';
+import { expect } from 'chai';
 import { Contract } from 'ethers';
-import { MockProvider, solidity} from 'ethereum-waffle';
-// import { verifyScore } from "../../src/utils/verify"
+import { MockProvider } from 'ethereum-waffle';
 import { Task, Quest } from "../../src/types"
 import { resolve, join } from 'path'
 import  fs  from 'fs'
@@ -9,8 +8,7 @@ import  fs  from 'fs'
 
 export async function verifyScore(task: Task, address?: string | null) {
   if (!address) return false
-  console.log(task)
-  // console.log(`${task.verifier.id}`)
+
   if (!Array.isArray(task.verifier)) {
     const module = await import(`../../src/verifiers/${task.verifier.id}`)
     const result: boolean | number = await module.verify(task, task.verifier, address)
@@ -28,12 +26,6 @@ export async function verifyScore(task: Task, address?: string | null) {
   return results.some(i => i)
 }
 
-// import BasicToken from '../build/BasicToken.json';
-
-// use(solidity);
-
-// const dir = resolve(process.cwd(), 'quests')
-// console.log(__dirname)
 const filename = 'test.json'
 const fullPath = join(__dirname, filename)
 
@@ -49,24 +41,9 @@ if (content) {
   quest.id = filename.replace('.json', '')
 }
 
-// console.log(quest)
-
-// const task: Task ={
-//   "name": "has MATIC on polygon",
-//   "description": "Own some MATIC on polygon.",
-//   "points": 100,
-//   "verifier": "has-ETH",
-//   "params": {
-//        "amount":0.1
-//   },
-//   "chainId":137
-// }
-
-
-describe('BasicToken', () => {
+describe('verifier - has-ETH', () => {
   const [wallet, walletTo] = new MockProvider().getWallets();
   let token: Contract;
-
 
 //   beforeEach(async () => {
 //     token = await deployContract(wallet, BasicToken, [1000]);
@@ -74,7 +51,7 @@ describe('BasicToken', () => {
 
   it('should return true', async () => {
 
-    let address = '0xF0DA8606a337fe16bd1F8845CeE85079AC702300'
+    const address = '0xF0DA8606a337fe16bd1F8845CeE85079AC702300'
     expect(await verifyScore(quest.tasks[0],address)).to.be.true;
     expect(await verifyScore(quest.tasks[1],address)).to.be.true;
 
@@ -82,7 +59,7 @@ describe('BasicToken', () => {
 
   it('should return false', async () => {
 
-    let address = '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+    const address = '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
     expect(await verifyScore(quest.tasks[0],address)).to.be.false;
     expect(await verifyScore(quest.tasks[1],address)).to.be.false;
 
