@@ -27,6 +27,30 @@
           "amount": 0.1
         }
       }
-    }
+    },
+    {
+      "name": "Have ETH on Arbitrum",
+      "description": "在 Arbitrum (L2) 拥有 ETH, 可通过 Multichain 跨链",
+      "points": 200,
+      "verifier": {
+        "id": "has-ETH",
+        "chainId": 42161,
+        "params": {
+          "amount": 0.001
+        }
+      }
+    },
+    {
+      "name": "Have ETH on Optimism",
+      "description": "在 Optimism (L2) 拥有 ETH, 可通过 Multichain 跨链",
+      "points": 200,
+      "verifier": {
+        "id": "has-ETH",
+        "chainId": 10,
+        "params": {
+          "amount": 0.001
+        }
+      }
+    }    
   ]
 }
