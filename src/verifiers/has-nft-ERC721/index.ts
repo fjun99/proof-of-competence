@@ -20,7 +20,8 @@ import { Task, Verifier } from "types"
 import { Contract } from "@ethersproject/contracts"
 import { isAddress} from "@ethersproject/address";
 import { AlchemyProvider } from '@ethersproject/providers'
-import { APP_CONFIG } from 'utils/config'
+// import { APP_CONFIG } from 'utils/config'
+const ALCHEMY_API_KEY = process.env.NEXT_PUBLIC_ALCHEMY_API_KEY;
 
 export async function verify(task: Task, verifier: Verifier, address: string): Promise<boolean | number> {
     if (!address || !verifier.params) return false
@@ -30,7 +31,7 @@ export async function verify(task: Task, verifier: Verifier, address: string): P
     if (!isAddress(contractAddress)) return false
 
     try {
-        const provider = new AlchemyProvider(verifier.chainId || 1, APP_CONFIG.ALCHEMY_API_KEY)
+        const provider = new AlchemyProvider(verifier.chainId || 1, ALCHEMY_API_KEY)
         const contract = await new Contract(contractAddress, abi, provider)
         const balanceOfNFT = await contract.balanceOf(address)
         if (balanceOfNFT > 0)

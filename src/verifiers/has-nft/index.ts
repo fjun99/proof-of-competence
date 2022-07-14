@@ -1,5 +1,6 @@
 import { Task, Verifier } from "types"
-import { APP_CONFIG } from "utils/config"
+// import { APP_CONFIG } from "utils/config"
+const ALCHEMY_API_KEY = process.env.NEXT_PUBLIC_ALCHEMY_API_KEY;
 
 export async function verify(task: Task, verifier: Verifier, address: string): Promise<boolean | number>
 {
@@ -8,7 +9,7 @@ export async function verify(task: Task, verifier: Verifier, address: string): P
 
     try { 
         const nftContractAddresses = verifier.params['addresses']
-        const response = await fetch(`https://eth-mainnet.g.alchemy.com/${APP_CONFIG.ALCHEMY_API_KEY}/v1/getNFTs/?owner=${address}&contractAddresses=${nftContractAddresses.join(',')}`)
+        const response = await fetch(`https://eth-mainnet.g.alchemy.com/${ALCHEMY_API_KEY}/v1/getNFTs/?owner=${address}&contractAddresses=${nftContractAddresses.join(',')}`)
         const data = await response.json()
 
         if (!data.ownedNfts || !Array.isArray(data.ownedNfts) || data.length === 0) return false
