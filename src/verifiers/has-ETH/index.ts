@@ -21,6 +21,8 @@ import { formatEther } from "@ethersproject/units"
 import { AlchemyProvider } from '@ethersproject/providers'
 import { APP_CONFIG } from 'utils/config'
 
+const ALCHEMY_API_KEY = process.env.NEXT_PUBLIC_ALCHEMY_API_KEY;
+
 export async function verify(task: Task, verifier: Verifier, address: string): Promise<boolean | number>
 {
     if (!address) return false
@@ -31,7 +33,7 @@ export async function verify(task: Task, verifier: Verifier, address: string): P
     }
 
     try { 
-        const provider = new AlchemyProvider(verifier.chainId || 1, APP_CONFIG.ALCHEMY_API_KEY)
+        const provider = new AlchemyProvider(verifier.chainId || 1, ALCHEMY_API_KEY)
         const balance= await provider.getBalance(address)
         if (Number(formatEther(balance)) > amount)  
             return true

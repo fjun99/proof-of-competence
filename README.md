@@ -3,6 +3,69 @@
 - if `NEXT_PUBLIC_DEFAULT_TOPIC_QUEST='...'` exists in `.env`, redirect to the quest. And add a list in the header. 
 - remove ENS domain entirely, since we want to support more chains instead of ENS.
 
+# Unit Test
+
+Add `mocha` and `chai`. Please refer to [Ethereum Waffle docs](https://ethereum-waffle.readthedocs.io/en/latest/getting-started.html#writing-tests).
+
+```
+yarn add --dev mocha chai
+yarn add --dev @types/mocha
+yarn add --dev ethereum-waffle
+yarn add --dev ts-node
+yarn add --dev typescript
+```
+
+- Write test
+
+```ts
+import { expect, use } from 'chai';
+import { Contract } from 'ethers';
+import { MockProvider, solidity} from 'ethereum-waffle';
+// import BasicToken from '../build/BasicToken.json';
+
+// use(solidity);
+
+describe('BasicToken', () => {
+  const [wallet, walletTo] = new MockProvider().getWallets();
+  let token: Contract;
+
+//   beforeEach(async () => {
+//     token = await deployContract(wallet, BasicToken, [1000]);
+//   });
+
+  it('Assigns initial balance', async () => {
+    expect(true);
+    // expect(await token.balanceOf(wallet.address)).to.equal(1000);
+  });
+
+});
+```
+
+- config
+
+package.json
+```json
+  "scripts": {
+    "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha"
+  },
+```
+
+- add a .mocharc.json file in your root directory:
+
+```json
+{
+  "require": "ts-node/register/transpile-only",
+  "spec": "test/**/*.test.{js,ts}"
+}
+```
+
+- run test
+
+```
+yarn test
+```
+
+
 # Proof of Competence
 
 Proof of Competence (PoC) is an open, modular framework to create on-chain quests and on-boarding journeys into Web3. It uses a pluggable task system which can verify that on-chain actions have occurred. This allows to build up reputation or social (DAO) scores that proof an address is familiar with the specified technologies or protocols.
