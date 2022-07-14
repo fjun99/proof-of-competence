@@ -26,7 +26,7 @@ export async function verifyScore(task: Task, address?: string | null) {
   return results.some(i => i)
 }
 
-const filename = 'test.json'
+const filename = 'testquest.json'
 const fullPath = join(__dirname, filename)
 
 const content = fs.readFileSync(fullPath, 'utf8')
