@@ -17,7 +17,7 @@ Usage: Task example for polygon(chainId 137). You can omit amount if you just wa
 */
 
 import { Task, Verifier } from "types"
-import { ethers } from "ethers"
+import { formatEther } from "@ethersproject/units"
 import { AlchemyProvider } from '@ethersproject/providers'
 import { APP_CONFIG } from 'utils/config'
 
@@ -33,7 +33,7 @@ export async function verify(task: Task, verifier: Verifier, address: string): P
     try { 
         const provider = new AlchemyProvider(verifier.chainId || 1, APP_CONFIG.ALCHEMY_API_KEY)
         const balance= await provider.getBalance(address)
-        if (Number(ethers.utils.formatEther(balance)) > amount)  
+        if (Number(formatEther(balance)) > amount)  
             return true
         
         return false

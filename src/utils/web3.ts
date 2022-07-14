@@ -1,11 +1,9 @@
-// import { InjectedConnector } from "@web3-react/injected-connector";
-import { ExternalProvider, getNetwork, JsonRpcFetchFunc } from "@ethersproject/providers"
+import { ExternalProvider, getNetwork, JsonRpcFetchFunc, getDefaultProvider } from "@ethersproject/providers"
 import { Web3Provider } from "@ethersproject/providers"
 import { BigNumberish } from "@ethersproject/bignumber";
 import { formatUnits } from "@ethersproject/units";
-// import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
+import { isAddress} from "@ethersproject/address";
 import { APP_CONFIG } from "./config";
-import { ethers } from "ethers";
 
 /*
 export const injected = new InjectedConnector({
@@ -138,7 +136,7 @@ export function parseBalance(value: BigNumberish, decimals = 18, decimalsToDispl
 }
 
 export async function tryGetValidAddress(addressOrName: string): Promise<string | undefined> {
-    const validAddress = ethers.utils.isAddress(addressOrName)
+    const validAddress = isAddress(addressOrName)
     if (validAddress) {
         return addressOrName
     }
@@ -148,7 +146,7 @@ export async function tryGetValidAddress(addressOrName: string): Promise<string 
 }
 
 export async function tryResolveName(name: string): Promise<string | undefined> {
-    const provider = ethers.getDefaultProvider(undefined, {
+    const provider = getDefaultProvider(undefined, {
         etherscan: APP_CONFIG.ETHERSCAN_API_KEY,
         infura: APP_CONFIG.INFURA_API_KEY,
         alchemy: APP_CONFIG.ALCHEMY_API_KEY,

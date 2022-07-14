@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getQuests } from 'services/quests'
-import { ApiResponseData, Quest } from 'types'
-import { verifyQuestScore } from 'utils/verify'
+import { ApiResponseData, Quest,  Task } from 'types'
 import { tryGetValidAddress } from 'utils/web3'
+import { verifyScore } from "utils/verify"
 
 type ResponseData = {
   address: string
@@ -37,7 +37,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   }
 
   const maxScore = quest.tasks.map(i => i.points).reduce((acc, i) => acc + i, 0)
-  const score = await verifyQuestScore(quest, address)
+  // const score = await verifyQuestScore(quest, address)
+
+  let scoresum = 0
+  await Promise.all(quest.tasks.map(async (task: Task) => {
+    const result = await verifyScore(task, address)
+    task.result =  result
+
+    if (result && typeof result === 'boolean') {
+      scoresum += task.points
+    }
+    if (result && typeof result === 'number') {
+      scoresum += result
+    }
+  }))
+
+  const score = scoresum
+
+  // console.log(quest)
 
   if (quest) {
     res.status(200).json({
