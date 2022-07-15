@@ -1,14 +1,11 @@
 import React from 'react'
 import NextLink from "next/link"
-import { Box, Flex, Button, useColorModeValue, Link, Spacer, useColorMode, Heading, LinkBox, LinkOverlay } from '@chakra-ui/react'
-import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+import { Flex, useColorModeValue, Spacer, Heading, LinkBox, LinkOverlay } from '@chakra-ui/react'
 import { TITLE } from 'utils/constants'
-import { Account } from './account'
-// import { DEFAULT_TOPIC_QUEST } from 'utils/constants'
+import { AccountMenu } from './AccountMenu'
 import { APP_CONFIG } from 'utils/config'
 
 export default function Header() {
-  const { colorMode, toggleColorMode } = useColorMode()
 
   return (
     <Flex as='header' bg={useColorModeValue('gray.100', 'gray.900')} p={4} alignItems='center'>
@@ -16,12 +13,11 @@ export default function Header() {
         <NextLink href={'/'} passHref>
           <LinkOverlay><Heading size="md">{TITLE}</Heading></LinkOverlay>
         </NextLink>
-      </LinkBox>
-      
+      </LinkBox>      
 
       <Spacer />
       
-      {  APP_CONFIG.DEFAULT_TOPIC_QUEST
+      {APP_CONFIG.DEFAULT_TOPIC_QUEST
       ? <LinkBox mx='4'>
           <NextLink href={'/lists'} passHref>
             <LinkOverlay>Quest Lists </LinkOverlay>
@@ -30,14 +26,7 @@ export default function Header() {
       : <></>
       }
 
-      <Box>
-        <Account />
-{/* 
-        <Button ml={4} onClick={toggleColorMode}>
-          {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-        </Button>
- */}
-      </Box>
+      <AccountMenu />
     </Flex>
   )
 }

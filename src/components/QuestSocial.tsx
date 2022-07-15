@@ -11,8 +11,8 @@ export default function QuestSocial(props: Props) {
     const quest = props.quest
 
     return (
-        <>
-       {(quest.website || quest.twitter) && (
+      <>
+      {(quest.website || quest.twitter) && (
         <Flex alignItems={['stretch', 'center']} flexDirection={['column', 'row']}>
           {quest.website && (
             <Link href={quest.website} isExternal mr={[0, 4]}
@@ -32,7 +32,7 @@ export default function QuestSocial(props: Props) {
             </Link>
           )}
         </Flex>
-        )}
-        </>
+      )}
+      </>
     )
 }

@@ -1,4 +1,4 @@
-
+// services/quest.ts
 import fs from 'fs'
 import { resolve, join } from 'path'
 import { Quest } from 'types'

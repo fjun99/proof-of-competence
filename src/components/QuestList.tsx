@@ -7,7 +7,7 @@ interface Props {
 }
 
 export default function QuestList(props: Props) {
-    const quests = props.quests
+    // const quests = props.quests
 
     return (
       <>
