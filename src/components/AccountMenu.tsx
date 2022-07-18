@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Menu, MenuButton, MenuList, MenuItem, MenuDivider, Center, useClipboard, Avatar, Flex, Box, Badge, Text } from '@chakra-ui/react'
-import { formatAddress, formatEtherscanLink, getNetworkName, getNetworkColor } from 'utils/web3'
+import { formatAddress, getNetworkColor } from 'utils/web3'
 import { DEFAULT_COLOR_SCHEME } from 'utils/constants'
-import { SmallCloseIcon, CopyIcon, ExternalLinkIcon, ChevronDownIcon } from '@chakra-ui/icons'
-import { useAccount, useConnect, useEnsName, useNetwork, useDisconnect } from 'wagmi'
+import { SmallCloseIcon, CopyIcon, ChevronDownIcon } from '@chakra-ui/icons'
+import { useAccount, useConnect, useNetwork, useDisconnect } from 'wagmi'
 
 export function AccountMenu() {
   const { chain } = useNetwork()
@@ -42,13 +42,11 @@ export function AccountMenu() {
     }    
 
     { mounted && isConnected &&
-      <>
       <Menu>
-        {
-          chain?.id &&  chain?.id > 1 &&
-            <Badge mr={4}  variant="outline" colorScheme={chain?.id ? getNetworkColor(chain?.id ) : 'gray'}>
-              {chain?.name}
-            </Badge>
+        {chain?.id &&  chain?.id > 1 &&
+          <Badge mr={4}  variant="outline" colorScheme={chain?.id ? getNetworkColor(chain?.id ) : 'gray'}>
+            {chain?.name}
+          </Badge>
         }
 
         <MenuButton as={Button}>
@@ -79,9 +77,7 @@ export function AccountMenu() {
           </MenuItem>
         </MenuList>
       </Menu>
-      </>
     }
-
     </>
   )
 }
