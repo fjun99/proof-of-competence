@@ -12,7 +12,10 @@ const alchemyId = APP_CONFIG.ALCHEMY_API_KEY
 const { chains, provider, webSocketProvider } =
   configureChains(
     [chain.mainnet, chain.polygon, chain.arbitrum, chain.optimism, chain.hardhat],
-    [alchemyProvider({ alchemyId }),publicProvider()],
+    [
+      alchemyProvider({ apiKey:alchemyId }),
+      publicProvider()
+    ],
   )
 
 const connectors =   [

@@ -20,15 +20,15 @@ export async function verifyScore(task: Task, address?: string | null) {
   if (!address) return false
 
   if (!Array.isArray(task.verifier)) {
-    const module = await import(`verifiers/${task.verifier.id}`)
-    const result: boolean | number = await module.verify(task, task.verifier, address)
+    const mymodule = await import(`verifiers/${task.verifier.id}`)
+    const result: boolean | number = await mymodule.verify(task, task.verifier, address)
 
     return result
   }
 
   const results = await Promise.all(task.verifier.map(async i => {
-    const module = await import(`verifiers/${i.id}`)
-    const result: boolean | number = await module.verify(task, i, address)
+    const mymodule = await import(`verifiers/${i.id}`)
+    const result: boolean | number = await mymodule.verify(task, i, address)
 
     return typeof result === 'number' ? result > 0 : result
   }))

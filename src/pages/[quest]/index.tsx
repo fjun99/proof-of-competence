@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { ParsedUrlQuery } from 'querystring'
-
 import { Box, Center, VStack } from "@chakra-ui/layout"
 import { useColorModeValue ,Text, Heading } from '@chakra-ui/react'
 import { StarIcon } from "@chakra-ui/icons"
@@ -41,7 +40,7 @@ export default function QuestPage(props: Props) {
   const { address } = useAccount()
 
   useEffect(() => {
-    async function getScoreSum() {
+    async function helperScoreSum() {
 
       let scoresum = 0
       if (!quest) return
@@ -61,10 +60,10 @@ export default function QuestPage(props: Props) {
       setScoreSum(scoresum)      
     }
 
-    getScoreSum()
+    helperScoreSum()
   }, [quest, address])
 
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false)//
   useEffect(() => setMounted(true), [])
 
   if (!props.quest) return null

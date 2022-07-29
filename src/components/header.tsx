@@ -18,12 +18,12 @@ export default function Header() {
       <Spacer />
       
       {APP_CONFIG.DEFAULT_TOPIC_QUEST
-      ? <LinkBox mx='4'>
+       ? <LinkBox mx='4'>
           <NextLink href={'/lists'} passHref>
             <LinkOverlay>Quest Lists </LinkOverlay>
           </NextLink>
         </LinkBox>
-      : <></>
+       : <></>
       }
 
       <AccountMenu />

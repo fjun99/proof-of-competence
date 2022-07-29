@@ -1,10 +1,10 @@
 {
-  "name": "Web3 Elites 之旅",
+  "name": "Web3 精英之旅",
   "version": 1,
-  "description": "使用 Polygon / Arbitrum / Optimism, 使用跨链、NFT等功能。",
+  "description": "Web3 Elites（Web3精英）之旅，使用 https://google.com <a href=''>Polygon</a> / Arbitrum / Optimism 等 L2, 并尝试跨链、NFT等功能。",
   "tasks": [
     {
-      "name": "Have a wallet address",
+      "name": "有一个钱包地址",
       "description": "你需要拥有一个地址（以太坊生态地址）",
       "points": 100,
       "verifier": {
@@ -12,7 +12,7 @@
       }
     },
     {
-      "name": "Have MATIC in polygon wallet",
+      "name": "钱包中有MATIC",
       "description": "在 Polygon 链，拥有 MATIC",
       "points": 100,
       "verifier": {
@@ -24,7 +24,7 @@
       }
     },
     {
-      "name": "Own * WE *  NFT on polygon",
+      "name": "成功铸造 * WE *  NFT（polygon链）",
       "description": "按要求 Mint 一个 WE (Web3 Elites) NFT",
       "points": 200,
       "verifier": {
@@ -36,7 +36,7 @@
       }
     },  
     {
-      "name": "Own WETH on polygon",
+      "name": "在 Polygon 链拥有 WETH ",
       "description": "在 Polygon 链拥有 WETH (ERC20)",
       "points": 200,
       "verifier": {
@@ -48,7 +48,7 @@
       }
     },
     {
-      "name": "Have ETH on Arbitrum",
+      "name": "在 Arbitrum L2 有 ETH ",
       "description": "在 Arbitrum (L2) 拥有 ETH, 可通过 Multichain 跨链",
       "points": 200,
       "verifier": {
@@ -60,7 +60,7 @@
       }
     },
     {
-      "name": "Have ETH on Optimism",
+      "name": "在 Optimism L2 有 ETH ",
       "description": "在 Optimism (L2) 拥有 ETH, 可通过 Multichain 跨链",
       "points": 200,
       "verifier": {

@@ -1,5 +1,5 @@
-import { ExternalProvider, getNetwork, JsonRpcFetchFunc, getDefaultProvider } from "@ethersproject/providers"
-import { Web3Provider } from "@ethersproject/providers"
+import { getNetwork, getDefaultProvider } from "@ethersproject/providers"
+// import { Web3Provider } from "@ethersproject/providers"
 import { BigNumberish } from "@ethersproject/bignumber";
 import { formatUnits } from "@ethersproject/units";
 import { isAddress} from "@ethersproject/address";
@@ -22,9 +22,9 @@ export const walletConnectConnector = new WalletConnectConnector({
     }
 })
 */
-export function getProvider(provider: ExternalProvider | JsonRpcFetchFunc) {
-    return new Web3Provider(provider)
-}
+// export function getProvider(provider: ExternalProvider | JsonRpcFetchFunc) {
+//     return new Web3Provider(provider)
+// }
 
 // export function formatAddress(value: string, length: number = 4) {
 //     return `${value.substring(0, length + 2)}...${value.substring(value.length - length)}`
