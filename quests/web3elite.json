@@ -1,7 +1,7 @@
 {
   "name": "Web3 精英之旅",
   "version": 1,
-  "description": "Web3 Elites（Web3精英）之旅，使用 https://google.com <a href=''>Polygon</a> / Arbitrum / Optimism 等 L2, 并尝试跨链、NFT等功能。",
+  "description": "Web3 Elites（Web3精英）之旅，使用 Polygon / Arbitrum / Optimism 等 L2, 并尝试跨链、NFT等功能。",
   "tasks": [
     {
       "name": "有一个钱包地址",
