@@ -31,7 +31,7 @@
         "id": "has-nft-ERC721",
         "chainId": 137,
         "params": {
-          "tokenAddress": "0xa850c6f46db0f04004194b9ac86282731e54e610"
+          "tokenAddress": "0x8F664fd05560d35a0aB913b1F8C1C5DA2cc9c8f7"
         }
       }
     },  
