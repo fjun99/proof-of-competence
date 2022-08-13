@@ -49,7 +49,7 @@
     },
     {
       "name": "在 Arbitrum L2 有 ETH ",
-      "description": "在 Arbitrum (L2) 拥有 ETH",
+      "description": "在 Arbitrum L2 链拥有 ETH",
       "points": 200,
       "verifier": {
         "id": "has-ETH",
@@ -61,7 +61,7 @@
     },
     {
       "name": "在 Optimism L2 有 ETH ",
-      "description": "在 Optimism (L2) 拥有 ETH",
+      "description": "在 Optimism L2 链拥有 ETH",
       "points": 200,
       "verifier": {
         "id": "has-ETH",
