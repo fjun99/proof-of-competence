@@ -24,8 +24,8 @@
       }
     },
     {
-      "name": "成功铸造 * WE *  NFT (polygon链) ",
-      "description": "按要求 Mint 一个 WE (Web3 Elites) NFT",
+      "name": "成功铸造 * WE *  (Web3 Elites) NFT ",
+      "description": "在 Polygon 链, Mint(铸造) 一个 WE NFT",
       "points": 200,
       "verifier": {
         "id": "has-nft-ERC721",
